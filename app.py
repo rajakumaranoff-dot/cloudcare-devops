@@ -58,7 +58,7 @@ def home():
             <title>CloudCare DevOps</title>
         </head>
         <body>
-            <h1>Welcome to CloudCare!</h1>
+            <h1>Cloudcare Devops - Version 2</h1>
             <h2>My First DevOps Project</h2>
             <p>Application successfully deployed using Python Flask.</p>
             <p>Next stop: AWS Cloud Infrastructure!</p>
