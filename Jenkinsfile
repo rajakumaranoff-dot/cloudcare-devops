@@ -10,7 +10,8 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                echo 'Preparing CloudCare source code'
+                checkout scm
+                echo 'CloudCare source code checked out successfully!'
             }
         }
 
