@@ -15,9 +15,9 @@ pipeline {
             }
         }
 
-        stage('Build') {
-            steps {
-                echo 'CloudCare build stage started'
+            stage('Build Docker Image') {
+                steps {
+                    sh 'docker build -t cloudcare-app:latest .'
             }
         }
 
