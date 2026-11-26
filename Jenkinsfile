@@ -34,6 +34,7 @@ pipeline {
                     docker rm -f cloudcare-app || true
                     docker run -d \
                         --name cloudcare-app \
+                        --network aws-devops-portfolio_default \
                         -p 5003:5000 \
                         cloudcare-app:latest
                 '''
