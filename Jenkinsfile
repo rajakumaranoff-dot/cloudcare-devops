@@ -1,3 +1,4 @@
+
 pipeline {
     agent any
 
@@ -15,15 +16,27 @@ pipeline {
             }
         }
 
-            stage('Build Docker Image') {
-                steps {
-                    sh 'docker build -t cloudcare-app:latest .'
+        stage('Build Docker Image') {
+            steps {
+                sh 'docker build -t cloudcare-app:latest .'
             }
         }
 
         stage('Test') {
             steps {
                 echo 'CloudCare testing stage started'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh '''
+                    docker rm -f cloudcare-app || true
+                    docker run -d \
+                        --name cloudcare-app \
+                        -p 5003:5000 \
+                        cloudcare-app:latest
+                '''
             }
         }
     }
